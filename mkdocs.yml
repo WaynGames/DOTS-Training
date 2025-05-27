@@ -3,18 +3,25 @@ logo: https://avatars.githubusercontent.com/u/47318939
 repo_url: https://github.com/WaynGames/DOTS-Training
 nav:
   - "Part 1: Health Regeneration": index.md
+extra:
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: French
+      link: /fr/
+      lang: fr
 theme:
   name: material
-  palette:
-    
+  language: en 
 
+  palette:   
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       primary: black  
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       primary: black
@@ -22,7 +29,6 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       primary: black
@@ -38,3 +44,5 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  
+  
