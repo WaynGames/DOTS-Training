@@ -1,0 +1,5 @@
+site_name: DOTS Training Walkthrough
+nav:
+  - Home: index.md
+theme:
+  name: material
