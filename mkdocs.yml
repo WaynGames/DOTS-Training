@@ -6,10 +6,10 @@ nav:
 extra:
   alternate:
     - name: English
-      link: /en/ 
+      link: DOTS-Training/en/
       lang: en
     - name: French
-      link: /fr/
+      link: DOTS-Training/fr/
       lang: fr
 theme:
   name: material
