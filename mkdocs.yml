@@ -3,6 +3,17 @@ repo_url: https://github.com/WaynGames/DOTS-Training
 nav:
   - "Part 1: Health Regeneration": index.md
 
+extra:
+  homepage: https://www.youtube.com/@WAYNGames
+  alternate:
+    - name: English
+      link: /DOTS-Training/en/
+      lang: en
+    - name: French
+      link: /DOTS-Training/fr/
+      lang: fr
+
+
 theme:
   name: material
   logo: https://avatars.githubusercontent.com/u/47318939
@@ -35,16 +46,12 @@ plugins:
   - i18n:
       docs_structure: folder
       default_language: en
-      reconfigure_material: true
-      reconfigure_search: true
       languages:
         - locale: en
           default: true
           name: English
-          build: true
         - locale: fr
           name: Français
-          build: true
           nav_translations:
             Home: Accueil
             Getting Started: Démarrage Rapide
