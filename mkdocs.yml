@@ -14,7 +14,7 @@ extra:
 theme:
   name: material
   logo: https://avatars.githubusercontent.com/u/47318939
-  lang: en
+  language: en
 
   palette:   
     # Palette toggle for automatic mode
