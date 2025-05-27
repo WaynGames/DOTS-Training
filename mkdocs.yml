@@ -5,7 +5,7 @@ nav:
 theme:
   name: material
   palette:
-    
+    primary: black
 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
