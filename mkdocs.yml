@@ -2,6 +2,7 @@ site_name: DOTS Training
 repo_url: https://github.com/WaynGames/DOTS-Training
 nav:
   - "Part 1: Health Regeneration": index.md
+  - "Part 2: Path Following": p2.md
 
 extra:
   homepage: https://www.youtube.com/@WAYNGames
@@ -54,3 +55,4 @@ plugins:
           name: Français
           nav_translations:
             "Part 1: Health Regeneration": "Part 1: Régénération de la santé"
+            "Part 2: Path Following": "Part 2: Suivre le chemin"
