@@ -2,7 +2,7 @@ site_name: DOTS Training
 logo: https://avatars.githubusercontent.com/u/47318939
 repo_url: https://github.com/WaynGames/DOTS-Training
 nav:
-  - "Part 1: Health Regeneration": '../'
+  - "Part 1: Health Regeneration": '.././p1.md'
 extra:
   alternate:
     - name: English
