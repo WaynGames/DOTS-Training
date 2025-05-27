@@ -47,11 +47,15 @@ The `HealthRegen` component holds the regeneration rate. By giving an entity a `
 #### [`DamageableAuthoring.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Authoring/DamageableAuthoring.cs) (Authoring MonoBehaviour + Baker)
 
 ```csharp
---8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:4:22"
+--8<-- 
+"1-HealthRegen/Authoring/DamageableAuthoring.cs:4:22"
+--8<-- 
 
 [...]
 
---8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:52:54"
+--8<-- 
+"1-HealthRegen/Authoring/DamageableAuthoring.cs:52:54"
+--8<-- 
 ```
 
 
@@ -86,7 +90,7 @@ This system runs every frame (its `OnUpdate` is called by the ECS scheduler). We
 
 In summary, `HealthRegenSystem` finds all entities that should regenerate health and increases their `Health.Current` each frame. By using `RefRW`/`RefRO` wrappers provided by [`SystemAPI`](https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/systems-systemapi.html), the code cleanly and safely updates component data. Only entities with both required components are touched, and the system does nothing if there are no such entities (thanks to the query filtering automatically).
 
-> **Note:** The code includes a `Debug.DrawLine(Vector3.zero, Vector3.one*3, Color.blue, 5)` (not shown above) for visual debugging in the Scene. This call is not essential to the ECS logic; it just draws a temporary line in the Scene view for debugging purposes. It can be removed without affecting the health regen functionality.
+> **Note:** The code includes a `Debug.DrawLine(Vector3.zero, Vector3.one*3, Color.blue, 5)` for visual debugging in the Scene. This call is not essential to the ECS logic; it just draws a temporary line in the Scene view for debugging purposes. It can be removed without affecting the health regen functionality.
 
 ## Summary of Learning Objectives
 
