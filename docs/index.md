@@ -28,67 +28,28 @@ Below we examine each of these scripts with code and inline commentary:
 
 #### [`Health.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Components/Health.cs) (Component Data)
 
---8<-- "1-HealthRegen/Components/Health.cs:3:12"
-
 ```csharp
 --8<-- "1-HealthRegen/Components/Health.cs:3:12"
 ```
 
-```csharp
-
-// An ECS component storing an entity's health (must be a struct implementing IComponentData)
-public struct Health : IComponentData
-{
-    public float Current;  // current health value of the entity
-    public float Max;      // maximum health value of the entity
-}
-```
 
 The `Health` component is a simple struct with two fields. Marking it as `IComponentData` means the ECS will store this data efficiently and allow systems to query and modify it. When an entity has this component, it represents that the entity has a health stat with a current value and a maximum value.
 
 #### [`HealthRegen.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Components/HealthRegen.cs) (Component Data)
 
 ```csharp
-public struct HealthRegen : IComponentData
-{
-    public float PointPerSec;  // health points regenerated per second
-}
+--8<-- "1-HealthRegen/Components/HealthRegen.cs:3:6"
 ```
+
 
 The `HealthRegen` component holds the regeneration rate. By giving an entity a `HealthRegen` component (in addition to `Health`), we mark that entity as one that should regenerate health over time. `PointPerSec` defines how many health points are regained each second. Entities without `HealthRegen` will not regenerate (for example, you might not give this component to objects that do not auto-heal).
 
-#### [`DamageableAuthoring.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Authoring/DamageableAuthoring.js) (Authoring MonoBehaviour + Baker)
+#### [`DamageableAuthoring.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Authoring/DamageableAuthoring.cs) (Authoring MonoBehaviour + Baker)
 
 ```csharp
-public class DamageableAuthoring : MonoBehaviour
-{
-    public float MaxHealth = 100f;
-    public float HealthRegenPerSec = 5f;
-
-    // Baker class to convert the authoring data to ECS components during the baking process
-    public class Baker : Baker<DamageableAuthoring>
-    {
-        public override void Bake(DamageableAuthoring authoring)
-        {
-            // Get or create an entity for this GameObject, with transform usage for a dynamic object (moving entity)
-            Entity entity = GetEntity(TransformUsageFlags.None);
-
-            // Prepare a Health component from the authoring fields
-            Health health = default;
-            health.Max     = authoring.MaxHealth;
-            health.Current = authoring.MaxHealth;  // start at full health (could also choose MaxHealth * some factor)
-
-            // Add the Health component to the entity
-            AddComponent(entity, health);
-
-            // Add a HealthRegen component to the entity, using the authoring regen rate value
-            HealthRegen regen = default;
-            regen.PointPerSec = authoring.HealthRegenPerSec;
-            AddComponent(entity, regen);
-        }
-    }
-}
+--8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:4:54"
 ```
+
 
 The `DamageableAuthoring` MonoBehaviour acts as the bridge between Unity’s GameObject world and the ECS world. You add this script to a GameObject (for example, an enemy character prefab) and set the **Max Health** and **Regen Rate** in the Inspector. When Unity “bakes” the GameObject to an Entity (such as when entering Play Mode with a SubScene workflow), the `Baker` nested class runs.
 
@@ -102,24 +63,9 @@ In the `Bake()` method above:
 
 After baking, the GameObject is converted into an Entity that now has both a Health and HealthRegen component with the values from the authoring script. At runtime, these values will be manipulated by ECS systems.
 
-#### [`HealthRegenSystem.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Systems/HealthRegenSystem.js) (ECS System)
-
+#### [`HealthRegenSystem.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Systems/HealthRegenSystem.cs) (ECS System)
 ```csharp
-[BurstCompile]  // Enable Burst for performance
-public partial struct HealthRegenSystem : ISystem
-{
-    public void OnUpdate(ref SystemState state)
-    {
-        // Iterate over all entities that have both Health and HealthRegen components
-        foreach (var (healthRW, regenRO) in SystemAPI.Query<RefRW<Health>, RefRO<HealthRegen>>())
-        {
-            // Calculate new health = current health + regenRate * deltaTime
-            float newHealth = healthRW.ValueRO.Current + regenRO.ValueRO.PointPerSec * SystemAPI.Time.DeltaTime;
-            // Clamp the new health so it does not exceed the entity's Max health
-            healthRW.ValueRW.Current = math.min(newHealth, healthRW.ValueRO.Max);
-        }
-    }
-}
+--8<-- "1-HealthRegen/Systems/HealthRegenSystem.cs:6:60"
 ```
 
 This system runs every frame (its `OnUpdate` is called by the ECS scheduler). We annotate it with `[BurstCompile]` to have the Burst compiler optimize the code. Inside `OnUpdate`:
