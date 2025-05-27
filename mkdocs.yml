@@ -4,6 +4,13 @@ nav:
   - "Part 1: Health Regeneration": index.md
 extra:
   homepage: https://www.youtube.com/@WAYNGames
+  alternate:
+    - name: English
+      link: /en/ 
+      lang: en
+    - name: French
+      link: /fr/
+      lang: fr
 theme:
   name: material
   logo: https://avatars.githubusercontent.com/u/47318939
