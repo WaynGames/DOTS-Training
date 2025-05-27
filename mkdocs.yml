@@ -45,7 +45,7 @@ plugins:
           build: true
         - locale: fr
           name: Français
-          build: true)"
+          build: true
           nav_translations:
             Home: Accueil
             Getting Started: Démarrage Rapide
