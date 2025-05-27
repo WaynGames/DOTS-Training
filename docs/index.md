@@ -28,10 +28,13 @@ Below we examine each of these scripts with code and inline commentary:
 
 #### [`Health.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Components/Health.cs) (Component Data)
 
-
+--8<-- "1-HealthRegen/Components/Health.cs:3:12"
 
 ```csharp
---8<-- "Health.cs:3:12"
+--8<-- "1-HealthRegen/Components/Health.cs:3:12"
+```
+
+```csharp
 
 // An ECS component storing an entity's health (must be a struct implementing IComponentData)
 public struct Health : IComponentData
