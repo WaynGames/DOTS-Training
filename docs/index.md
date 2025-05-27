@@ -47,11 +47,19 @@ The `HealthRegen` component holds the regeneration rate. By giving an entity a `
 #### [`DamageableAuthoring.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Authoring/DamageableAuthoring.cs) (Authoring MonoBehaviour + Baker)
 
 ```csharp
---8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:4:54"
+--8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:4:22"
+
+[...]
+
+--8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:52:54"
 ```
 
 
 The `DamageableAuthoring` MonoBehaviour acts as the bridge between Unity’s GameObject world and the ECS world. You add this script to a GameObject (for example, an enemy character prefab) and set the **Max Health** and **Regen Rate** in the Inspector. When Unity “bakes” the GameObject to an Entity (such as when entering Play Mode with a SubScene workflow), the `Baker` nested class runs.
+
+```csharp
+--8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:21:52"
+```
 
 In the `Bake()` method above:
 
