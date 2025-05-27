@@ -1,5 +1,6 @@
-site_name: DOTS Training Walkthrough
+site_name: DOTS Training
+logo: https://avatars.githubusercontent.com/u/47318939?v=4
 nav:
-  - Home: index.md
+  - "Part 1: Health Regeneration": index.md
 theme:
   name: material
