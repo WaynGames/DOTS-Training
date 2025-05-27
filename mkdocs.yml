@@ -1,7 +1,7 @@
 site_name: DOTS Training
 repo_url: https://github.com/WaynGames/DOTS-Training
 nav:
-  - "Part 1: Health Regeneration": p1.md
+  - "Part 1: Health Regeneration": index.md
 extra:
   homepage: https://www.youtube.com/@WAYNGames
   alternate:
