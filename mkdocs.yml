@@ -6,7 +6,16 @@ nav:
 theme:
   name: material
   logo: https://avatars.githubusercontent.com/u/47318939
-
+  feature:
+    language-selector: true
+  extra:
+    alternate:
+      - name: English
+        link: /en/
+        lang: en
+      - name: Français
+        link: /fr/
+        lang: fr
   palette:   
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -37,14 +46,13 @@ plugins:
       docs_structure: folder
       default_language: en
       languages:
-        - locale: en
-          default: true
+        en:
           name: English
           build: true
-        - locale: fr
+          nav_translations:
+            "Part 1: Health Regeneration": "Part 1: Health Regeneration"
+        fr:
           name: Français
           build: true
           nav_translations:
-            Home: Accueil
-            Getting Started: Démarrage Rapide
-            Plugins Compatibility: Compatibilité des plugins
+            "Part 1: Health Regeneration": "Partie 1 : Régénération de la santé"
