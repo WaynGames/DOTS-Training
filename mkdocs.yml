@@ -7,7 +7,7 @@ extra:
   homepage: https://www.youtube.com/@WAYNGames
   alternate:
     - name: English
-      link: /DOTS-Training/en/
+      link: /DOTS-Training/
       lang: en
     - name: French
       link: /DOTS-Training/fr/
@@ -53,6 +53,4 @@ plugins:
         - locale: fr
           name: Français
           nav_translations:
-            Home: Accueil
-            Getting Started: Démarrage Rapide
-            Plugins Compatibility: Compatibilité des plugins
+            "Part 1: Health Regeneration": "Part 1: Régénération de la santé"
