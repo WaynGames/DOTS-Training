@@ -1,9 +1,9 @@
 site_name: DOTS Training
-logo: https://avatars.githubusercontent.com/u/47318939
 repo_url: https://github.com/WaynGames/DOTS-Training
 nav:
-  - "Part 1: Health Regeneration": 'en/p1.md'
+  - "Part 1: Health Regeneration": p1.md
 extra:
+  homepage: https://www.youtube.com/@WAYNGames
   alternate:
     - name: English
       link: /en/
@@ -13,6 +13,7 @@ extra:
       lang: fr
 theme:
   name: material
+  logo: https://avatars.githubusercontent.com/u/47318939
 
   palette:   
     # Palette toggle for automatic mode
