@@ -32,9 +32,21 @@ markdown_extensions:
   - pymdownx.superfences
   
 plugins:
-- search
-- mkdocs-static-i18n:
-  default_language: en
-  languages:
-    en: English
-    fr: Français
+  - search
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: fr
+          name: Français
+          build: true)"
+          nav_translations:
+            Home: Accueil
+            Getting Started: Démarrage Rapide
+            Plugins Compatibility: Compatibilité des plugins
