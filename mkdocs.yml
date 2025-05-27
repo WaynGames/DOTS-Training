@@ -6,10 +6,10 @@ extra:
   homepage: https://www.youtube.com/@WAYNGames
   alternate:
     - name: English
-      link: /en/ 
+      link: /DOTS-Training/en/
       lang: en
     - name: French
-      link: /fr/
+      link: /DOTS-Training/fr/
       lang: fr
 theme:
   name: material
