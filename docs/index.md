@@ -47,7 +47,11 @@ The `HealthRegen` component holds the regeneration rate. By giving an entity a `
 #### [`DamageableAuthoring.cs`](https://github.com/WaynGames/DOTS-Training/blob/main/1-HealthRegen/Authoring/DamageableAuthoring.cs) (Authoring MonoBehaviour + Baker)
 
 ```csharp
---8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:4:22,52:54"
+--8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:4:22"
+
+[...]
+
+--8<-- "1-HealthRegen/Authoring/DamageableAuthoring.cs:52:54"
 ```
 
 
