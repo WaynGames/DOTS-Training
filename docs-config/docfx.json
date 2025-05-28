@@ -4,14 +4,11 @@
       "src": [
         {
           "src": "../",
-          "files": [ "../**/*.cs" ],
-          "exclude": [ "../**/bin/**", "../**/obj/**" ]
+          "files": [ "*" ],
+          "exclude": [ "**/bin/**", "**/obj/**" ]
         }
       ],
-      "dest": "api",
-      "properties": {
-        "TargetFramework": "net6.0"
-      }
+      "dest": "api"
     }
   ],
   "build": {
