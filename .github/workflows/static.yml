@@ -36,8 +36,8 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.x
-        - run: dotnet tool update -g docfx
-        - run: docfx docfx.json
+        run: dotnet tool update -g docfx
+        run: docfx docfx.json
 
       - name: Build MkDocs site
         run: mkdocs build
