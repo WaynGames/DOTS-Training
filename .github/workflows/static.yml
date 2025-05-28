@@ -32,17 +32,10 @@ jobs:
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material mkdocs-static-i18n
 
-      - name: Install DocFX
-        run: |
-          wget https://github.com/dotnet/docfx/releases/latest/download/docfx.zip
-          unzip docfx.zip -d docfx
-          sudo mv docfx/docfx /usr/local/bin
-
-      - name: Generate API Docs with DocFX
-        run: docfx docfx_project/docfx.json
-
-      - name: Copy DocFX output into MkDocs docs dir
-        run: cp -r docfx_project/_site docs/api
+     -  name: Build Documentation
+        uses: nikeee/docfx-action@v1.0.0
+        with:
+          args: docfx.json
 
       - name: Build MkDocs site
         run: mkdocs build
