@@ -13,11 +13,16 @@ extra:
     - name: French
       link: /DOTS-Training/fr/
       lang: fr
-
+      
+extra_css:
+  - stylesheets/extra.css
 
 theme:
   name: material
   logo: https://avatars.githubusercontent.com/u/47318939
+  features:
+    - content.code.copy
+    - content.code.select
   palette:   
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -41,6 +46,11 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   
 plugins:
   - search
