@@ -41,7 +41,7 @@ jobs:
         run: dotnet tool update -g docfx
 
       - name: Run DocFX
-        run: docfx docfx.json
+        run: docfx docs-config/docfx.json
 
       - name: Build MkDocs site
         run: mkdocs build
