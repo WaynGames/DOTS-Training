@@ -1,0 +1,42 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "../**/*.csproj" ],
+          "exclude": [ "../**/bin/**", "../**/obj/**" ]
+        }
+      ],
+      "dest": "api",
+      "properties": {
+        "TargetFramework": "net6.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [ "api/**.yml" ]
+      },
+      {
+        "files": [ "articles/**.md", "toc.yml", "*.md" ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [ "styles/**" ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [ "apidocs/**.md" ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "API Documentation",
+      "_disableContribution": true
+    },
+    "template": [ "default" ]
+  }
+}
