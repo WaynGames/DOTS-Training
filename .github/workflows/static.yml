@@ -32,11 +32,6 @@ jobs:
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material mkdocs-static-i18n
 
-     -  name: Build Documentation
-        uses: nikeee/docfx-action@v1.0.0
-        with:
-          args: docfx.json
-
       - name: Build MkDocs site
         run: mkdocs build
 
