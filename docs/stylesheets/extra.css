@@ -7,6 +7,6 @@
 
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 70%;
-  width: 70%;
+  height: 64px;
+  width: 64px;
 }
