@@ -43,9 +43,6 @@ jobs:
       - name: Run DocFX
         run: docfx docs-config/docfx.json
 
-      - name: Build MkDocs site
-        run: mkdocs build
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
