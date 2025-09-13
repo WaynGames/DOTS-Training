@@ -4,8 +4,7 @@
       "src": [
         {
           "src": "../",
-          "files": [ "**/*.cs" ],
-          "exclude": [ "**/bin/**", "**/obj/**" ]
+          "files": [ "**/*.cs" ]
         }
       ],
       "dest": "api",
@@ -13,29 +12,53 @@
     }
   ],
   "build": {
+    "globalMetadata": {
+      "_appTitle": "'${{ fromJson(env.package).displayName }}' | '${{ fromJson(env.package).version }}'",
+      "_appFooter": "",
+      "_enableSearch": true,
+      "_enableNewTab": false,
+      "_disableNewTab": true,
+      "_disableContribution": true,
+      "_disableNextArticle": true
+    },
+    "fileMetadata": {
+      "_disableContribution": { "manual/**/*.md": false }
+    },
+    "globalMetadataFiles": [
+    ],
     "content": [
+      { "files": [ "index.md", "toc.yml" ] },
       {
-        "files": [ "api/**.yml" ]
+        "src": "license",
+        "files": [ "*.md" ],
+        "dest": "license"
       },
       {
-        "files": [ "articles/**.md", "toc.yml", "*.md" ]
-      }
-    ],
-    "resource": [
+        "src": "changelog",
+        "files": [ "*.md" ],
+        "dest": "changelog"
+      },
       {
-        "files": [ "styles/**" ]
+        "src": "api",
+        "files": [ "*.yml", "index.md" ],
+        "dest": "api"
+      },
+      {
+        "src": "manual",
+        "files": [ "**/*.md" ],
+        "dest": "manual"
       }
     ],
+    "resource": [ { "files": [ "manual/images/*" ] } ],
     "overwrite": [
       {
         "files": [ "apidocs/**.md" ]
       }
     ],
-    "dest": "_site",
-    "globalMetadata": {
-      "_appTitle": "API Documentation",
-      "_disableContribution": true
-    },
-    "template": [ "default" ]
+    "sitemap": { "baseUrl": "'$url'" },
+    "xref": [ "'$url'" ],
+    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
+    "dest": "../_site",
+    "template": [ "default", "modern" ]
   }
 }
