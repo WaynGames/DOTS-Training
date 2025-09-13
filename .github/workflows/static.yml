@@ -33,10 +33,10 @@ jobs:
         run: pip install mkdocs mkdocs-material mkdocs-static-i18n
 
       - name: Dotnet Setup
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.x
-            
+
       - name: Install DocFX
         run: dotnet tool update -g docfx
 
