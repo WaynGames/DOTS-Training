@@ -36,13 +36,7 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.x
-      
-      - name: Build Unity project (generate DLLs and XML docs)
-        uses: game-ci/unity-builder@v3
-        with:
-          unityVersion: 2022.3.0f1
-          targetPlatform: StandaloneLinux64
-      
+            
       - name: Install DocFX
         run: dotnet tool update -g docfx
 
@@ -52,14 +46,9 @@ jobs:
       - name: Build MkDocs site
         run: mkdocs build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'site'
-
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
