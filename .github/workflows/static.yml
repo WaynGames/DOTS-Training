@@ -32,6 +32,23 @@ jobs:
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material mkdocs-static-i18n
 
+      - name: Dotnet Setup
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.x
+      
+      - name: Build Unity project (generate DLLs and XML docs)
+        uses: game-ci/unity-builder@v3
+        with:
+          unityVersion: 2022.3.0f1
+          targetPlatform: StandaloneLinux64
+      
+      - name: Install DocFX
+        run: dotnet tool update -g docfx
+
+      - name: Run DocFX
+        run: docfx docs-config/docfx.json
+
       - name: Build MkDocs site
         run: mkdocs build
 
